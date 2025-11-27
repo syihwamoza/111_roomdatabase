@@ -80,5 +80,45 @@ fun HomeScreen(
 
     }
 }
+@Composable
+fun BodyHome(
+    itemSiswa: List<Siswa>,
+    modifier: Modifier = Modifier
+){
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+    ) {
+        if (itemSiswa.isEmpty()){
+            Text(stringResource(R.string.deskripsi_no_item),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge
+            )
+        }
+        else{
+            ListSiswa(
+                itemSiswa = itemSiswa,
+                modifier = Modifier.padding(horizontal = 8.dp)
+            )
+        }
+    }
+}
+@Composable
+fun ListSiswa(
+    itemSiswa: List<Siswa>,
+    modifier: Modifier = Modifier
+){
+    LazyColumn(modifier = Modifier) {
+        items(items = itemSiswa, key = {it.id}){
+                person -> DataSiswa(
+            siswa = person,
+            modifier = Modifier
+                .padding(all = 8.dp)
+        )
+        }
+
+
+    }
+}
 
 
