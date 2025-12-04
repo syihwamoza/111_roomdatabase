@@ -42,3 +42,8 @@ fun EditSiswaScreen(
                     viewModel.updateSiswa()
                     navigateBack()
                 }
+            },
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+}
