@@ -1,4 +1,4 @@
-package com.example.Pertemuan9.viewmodel
+package com.example.pertemuan9.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,6 +19,7 @@ class EntryViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() 
             nama.isNotBlank() && alamat.isNotBlank() && telpon.isNotBlank()
         }
     }
+
     fun updateUIState(detailSiswa: DetailSiswa) {
         uiStateSiswa =
             UIStateSiswa(detailSiswa = detailSiswa, isEntryValid = validasiInput(detailSiswa))
@@ -31,6 +32,7 @@ class EntryViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() 
         }
     }
 }
+
 // Menyediakan Status UI untuk Siswa
 data class UIStateSiswa(
     val detailSiswa: DetailSiswa = DetailSiswa(),
@@ -43,10 +45,11 @@ data class DetailSiswa(
     val alamat: String = "",
     val telpon: String = "",
 )
+
 // Fungsi untuk mengkonversi data input ke data dalam tabel sesuai jenis datanya
 fun DetailSiswa.toSiswa(): Siswa = Siswa(
     id = id,
-    name = nama,
+    name = nama, // Pastikan di file Siswa.kt variabelnya 'nama', bukan 'name'
     alamat = alamat,
     telpon = telpon
 )
@@ -56,11 +59,10 @@ fun Siswa.toUIStateSiswa(isEntryValid: Boolean = false): UIStateSiswa =
         detailSiswa = this.toDetailSiswa(),
         isEntryValid = isEntryValid
     )
+
 fun Siswa.toDetailSiswa(): DetailSiswa = DetailSiswa(
     id = id,
-    nama = name,
+    nama = name, // Pastikan di file Siswa.kt variabelnya 'nama', bukan 'name'
     alamat = alamat,
     telpon = telpon
 )
-
-

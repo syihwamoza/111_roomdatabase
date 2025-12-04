@@ -50,7 +50,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
 
-    implementation(libs.room.compiler)
+    ksp(libs.room.compiler)
     implementation(libs.compose.icons)
     //Room
     implementation(libs.bundles.room)
@@ -58,7 +58,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
     // Navigasi
-
     implementation(libs.navigation.compose)
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
